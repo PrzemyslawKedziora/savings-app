@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->double('budgetLimit');
+            $table->double('savingsGoal');
+            $table->double('balance');
             $table->rememberToken();
             $table->timestamps();
         });
