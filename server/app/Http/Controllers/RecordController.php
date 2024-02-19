@@ -27,17 +27,19 @@ class RecordController extends Controller
     public function store(Request $request)
     {
         $userId = 5; //temp
-    
+
         $validatedData = $request->validate([
             'type' => 'required|in:receipt,expense',
             'category' => 'required|string',
-            'moneySpentInPLN' => 'required|numeric',
+            'moneySpent' => 'required|numeric',
+            'currency' => 'required|string',
+            'date' => 'required|string',
             'description' => 'string'
         ]);
         $validatedData['userID'] = $userId;
-    
+
         $record = Record::create($validatedData);
-    
+
         return response()->json(['message' => 'Record created successfully', 'record' => $record], 201);
     }
     /**

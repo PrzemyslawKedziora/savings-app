@@ -14,6 +14,8 @@ use App\Http\Controllers\RecordController;
 |
 */
 
+Route::get('/records', [RecordController::class, 'index']);
+
 Route::get('/records/{userID}', [RecordController::class, 'show']);
 
 Route::get('/records/{id}', [RecordController::class, 'showDetails']);

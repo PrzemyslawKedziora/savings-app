@@ -10,9 +10,10 @@ class Record extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', //receipt or expense
+        'type', //income or expense
         'category',
-        'moneySpentInPLN',
+        'moneySpent',
+        'currency',
         'description',
         'userID'
     ];
