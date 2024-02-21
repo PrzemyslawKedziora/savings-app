@@ -1,0 +1,12 @@
+@import "../../../variables";
+
+.container{
+  background: $palette-black;
+}
+.border-bot{
+  border-color: $palette-dark-gray;
+  --tw-border-opacity: 1;
+}
+footer{
+  color: $palette-light-gray;
+}

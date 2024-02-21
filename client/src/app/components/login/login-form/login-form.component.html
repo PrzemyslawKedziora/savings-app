@@ -1,0 +1,21 @@
+<form [formGroup]="loginForm" class="flex gap-4 flex-col">
+  <div class="input-container flex flex-col">
+    <label for="email">Email</label>
+    <input type="text"
+           name="email"
+           id="email"
+           placeholder="Enter your email address..."
+    class="rounded-lg w-64 h-12">
+  </div>
+  <div class="input-container flex flex-col">
+    <label for="password">Password</label>
+    <input type="password"
+           name="email"
+           id="password"
+           placeholder="Enter your password..."
+    class="rounded-lg w-64 h-12">
+  </div>
+  <button type="submit" class="button-submit h-10 mt-4 rounded-full">
+    <i class="fa-solid fa-right-to-bracket fa-sm"></i> Log in
+  </button>
+</form>

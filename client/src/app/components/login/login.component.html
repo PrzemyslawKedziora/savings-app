@@ -1,10 +1,16 @@
-<p>login works!</p>
-<form [formGroup]="loginForm">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        baba
-      </div>
+<div class="container flex flex-col justify-center items-center h-lvh gap-4">
+  <div class="info-container flex justify-center items-center gap-2">
+    <i class="fa-solid fa-scale-unbalanced fa-2xl"></i>
+    <div class="info-text-container">
+      <p class="text-xl">Welcome to Your Savings</p>
+      <p class="text-sm">Log in to sync your account</p>
     </div>
   </div>
-</form>
+  <div class="border-bot border-t-2 w-64"></div>
+  <app-login-form></app-login-form>
+  <footer class="relative top-48">
+   <p>
+     By clicking "Log in",you agree the Terms & Conditions of YourSavings.
+   </p>
+  </footer>
+</div>
