@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {RecordModel} from "../models/record.model";
+import {RecordModel} from "../../models/record.model";
 
 @Injectable({
   providedIn: 'root'

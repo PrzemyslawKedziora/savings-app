@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
 
   ],
   templateUrl: './login-form.component.html',
