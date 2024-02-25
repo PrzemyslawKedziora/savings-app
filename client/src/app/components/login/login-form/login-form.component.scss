@@ -16,7 +16,8 @@ input::content{
 .button-submit:hover{
   background-color: $palette-white-hover;
 }
-.register-buton{
-
+.invalid-input{
+  color: $palette-orange;
+  position: relative;
+  bottom: 10px;
 }
-
