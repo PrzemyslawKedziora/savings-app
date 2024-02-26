@@ -24,9 +24,9 @@ class RecordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$userID)
     {
-        $userId = 5; //temp
+        $userId = User::find($userID);
 
         $validatedData = $request->validate([
             'type' => 'required|in:receipt,expense',
@@ -100,11 +100,15 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $userID)
     {
         $record = Record::find($id);
+        $user = User::find($userID);
         if (!$record) {
             return response()->json(['message' => 'Record not found'], 404);
+        }
+        if ($record->$user != $userID){
+            return response()->json(['message'=> 'You cannot remove records that are not yours.'],419);
         }
         $record->delete();
         return response()->json(['message' => 'Record deleted successfully'], 200);
