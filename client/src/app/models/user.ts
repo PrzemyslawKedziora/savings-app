@@ -6,5 +6,4 @@ export interface UserModel{
   budgetLimit:number,
   savingsGoal:number,
   balance:number
-
 }

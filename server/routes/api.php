@@ -27,7 +27,7 @@ Route::put('/records/{id}', [RecordController::class, 'update']);
 
 Route::delete('/records/{id}', [RecordController::class, 'destroy']);
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

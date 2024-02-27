@@ -15,9 +15,12 @@ class UserController extends Controller
             $user = Auth::user();
             $token = $user->createToken('MyApp')->accessToken;
             $jwtToken = $user->createToken('MyApp')->plainTextToken;
-            return response()->json(['token' => $jwtToken], 200);
+            return response()->json(
+            ['status' => true,
+            'token' => $jwtToken], 200);
         } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['status' => false,
+            'error' => 'Unauthorized'], 401);
         }
     }
 }
