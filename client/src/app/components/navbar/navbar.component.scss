@@ -1,0 +1,38 @@
+@import "../../../variables";
+
+.navbar-body{
+background: $palette-dark-gray;
+  border-radius: 10px;
+  min-height: 100vh;
+  justify-content: space-between;
+  min-width: 15vw;
+}
+.navbar-body:first-child, .navbar-body:last-child{
+  padding: 4vh 0;
+}
+.sidebar-option{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3vh 0;
+  width: 10vw;
+  height: 4vh;
+  border-radius: 10px;
+}
+.sidebar-option:focus{
+  color: $palette-light-green;
+}
+.sidebar-option:hover{
+  cursor: pointer;
+  color: $palette-light-green;
+  background-color: $palette-light-gray;
+  transition: ease-in 0.1s;
+}
+.button-submit{
+  background-color: $palette-white;
+  color: $palette-dark-gray;
+  font-size: 16px;
+}
+.button-submit:hover{
+  background-color: $palette-white-hover;
+}

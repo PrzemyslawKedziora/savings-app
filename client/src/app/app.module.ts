@@ -23,6 +23,9 @@ import {RegisterModule} from "./components/register/register.module";
   providers: [
     provideAnimationsAsync()
   ],
+  exports: [
+    AppComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
