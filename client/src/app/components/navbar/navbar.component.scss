@@ -12,10 +12,12 @@ background: $palette-dark-gray;
 }
 .sidebar-option{
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  float: left;
   margin: 3vh 0;
-  width: 10vw;
+  width: 9rem;
+  padding-left: 0.5rem;
   height: 4vh;
   border-radius: 10px;
 }

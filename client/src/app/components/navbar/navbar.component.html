@@ -1,5 +1,6 @@
 <div class="flex flex-col items-center navbar-body">
-  <div class="user-info">
+  <div class="user-info flex flex-col items-center justify-center">
+    <img src="assets/unknown-user-pic.png" alt="profile picture" class="w-32">
         <p>Hello user!</p>
   </div>
 <div class="flex flex-col items-center navigation-list">
@@ -7,7 +8,8 @@
     <i class="fa-solid fa-chart-pie"></i>
     <span>
       Dashboard
-    </span></div>
+    </span>
+  </div>
   <div class="sidebar-option" routerLink="/main/transactions">
     <i class="fa-solid fa-money-bills"></i>
     <span>
@@ -18,7 +20,8 @@
     <i class="fa-solid fa-wallet"></i>
     <span>
       Portfolio
-    </span></div>
+    </span>
+  </div>
   <div class="border-bot border-t-2 w-32"></div>
   <div class="sidebar-option" routerLink="/main/settings">
     <i class="fa-solid fa-gear"></i>
@@ -33,5 +36,6 @@
     </span>
   </div>
 </div>
-  <button class="sidebar-option button-submit flex items-center justify-center h-10 mt-4 rounded-full w-32">Log out</button>
+  <button class="sidebar-option button-submit flex items-center justify-center h-10 mt-4 rounded-full w-32">
+    <i class="fa-solid fa-right-to-bracket fa-sm"></i>Log out</button>
 </div>

@@ -1,2 +1,8 @@
-app-navbar{
+@import "../../../variables";
+.container{
+  background-color: $palette-dark-gray;
+  margin-left: 1vw;
+  min-width: 84vw;
+  min-height: 100vh;
+  border-radius: 10px;
 }

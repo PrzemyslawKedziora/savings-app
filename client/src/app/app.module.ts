@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {LoginModule} from "./components/login/login.module";
 import {RegisterModule} from "./components/register/register.module";
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {RegisterModule} from "./components/register/register.module";
     AppRoutingModule,
     HttpClientModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    NgApexchartsModule
 
   ],
   providers: [

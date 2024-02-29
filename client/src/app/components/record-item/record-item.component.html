@@ -1,0 +1,15 @@
+<div class="container flex justify-between">
+<div class="main-info flex items-center gap-2">
+  <div class="record-type flex items-center justify-center" [class.expense]="record.type === 'expense'" [class.income]="record.type === 'income'">
+    <i class="fa-solid fa-money-bills"></i>
+  </div>
+  <div class="record-info">
+    <p>{{record.category | titlecase}}</p>
+    <p class="record-date">{{record.updated_at | date:'short'}}</p>
+  </div>
+</div>
+  <div class="value">
+    {{record.type =='expense' ? '-' : '+'}}
+    {{record.moneySpent}}
+  </div>
+</div>
