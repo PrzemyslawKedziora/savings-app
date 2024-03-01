@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Record;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class RecordController extends Controller
 {
@@ -15,7 +16,15 @@ class RecordController extends Controller
      */
     public function index()
     {
-        return Record::all();
+    $monthlySum = DB::table('records')
+        ->selectRaw('DATE_FORMAT(updated_at, "%Y-%m") as month, SUM(moneySpent) as total_sum')
+        ->where('type','expense')
+        ->groupBy('month')
+        ->orderBy('month')
+        ->get();
+
+    // Wynik
+        return ['records'=>Record::all(),'linearChartData' =>$monthlySum];
     }
 
     /**

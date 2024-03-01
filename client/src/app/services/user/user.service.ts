@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import {environment} from "../../../environments/environments";
 import {UserModel} from "../../models/user";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environments";
 import {Observable} from "rxjs";
-import {ApiResponseModel} from "../../models/api-response.model";
+import {ApiResponseUser} from "../../models/api-response.model";
 
 
 @Injectable({
@@ -25,8 +25,8 @@ export class UserService {
 
   registerUser(user: UserModel){}
 
-  loginUser(user: any): Observable<ApiResponseModel<string>>{
-   return this.http.post<ApiResponseModel<string>>(environment.apiUrl+'login',user);
+  loginUser(user: any): Observable<ApiResponseUser>{
+   return this.http.post<ApiResponseUser>(environment.apiUrl+'login',user);
   }
   updateUser(user: UserModel){
 

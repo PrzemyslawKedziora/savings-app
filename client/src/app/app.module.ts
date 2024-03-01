@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {LoginModule} from "./components/login/login.module";
 import {RegisterModule} from "./components/register/register.module";
 import { NgApexchartsModule } from "ng-apexcharts";
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
     HttpClientModule,
     LoginModule,
     RegisterModule,
+    DashboardComponent,
     NgApexchartsModule
 
   ],

@@ -1,5 +1,14 @@
 <div class="flex container">
-  <div id="chart" class="chart">
+  <div id="chart" class="chart1">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [stroke]="chartOptions.stroke"
+      [title]="chartOptions.title"
+      [fill]="chartOptions.fill"
+    ></apx-chart>
   </div>
   <div class="recent-expenses-list">
     @for (record of records$; track record.id){

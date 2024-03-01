@@ -44,7 +44,7 @@ export class LoginFormComponent{
         .subscribe((res) => {
           if ('status' in res && res.status) {
               this.userService.loggedIn = true;
-              sessionStorage.setItem('_token', res.data);
+              sessionStorage.setItem('_token', res.token);
               Swal.fire({
                 icon: "success",
                 title: "User has been successfully logged in!",
@@ -53,7 +53,7 @@ export class LoginFormComponent{
                 color: '#fafafa',
                 timer: 1500
               }).then(() => {
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/main/dashboard']);
               });
           }
         });
