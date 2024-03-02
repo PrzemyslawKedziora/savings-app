@@ -21,7 +21,10 @@
     </div>
   </div>
   <div class="recent-expenses-list flex flex-col gap-8">
-    <p class="mx-2 text-xl w-max">Recent expenses</p>
+    <div class="flex title-records items-center justify-between">
+      <p class="mx-2 text-xl w-max">Recent expenses</p>
+      <i class="fa-solid fa-arrow-up-right-from-square router-icon" routerLink="/main/transactions"></i>
+    </div>
     @for (record of records$.slice(0,5); track record.id){
       <app-record-item [record]="record"></app-record-item>
     } @empty {

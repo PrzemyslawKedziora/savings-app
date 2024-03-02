@@ -7,6 +7,7 @@ import {RecordModule} from "../record-item/record.module";
 import {ChartComponent, NgApexchartsModule} from "ng-apexcharts";
 import {AreaChartOptions, PieChartOptions} from "../../models/chart-options.model";
 import {MonthExpenseSummary} from "../../models/MonthExpenseSummary";
+import {RouterLink} from "@angular/router";
 
 
 @Component({
@@ -18,6 +19,7 @@ import {MonthExpenseSummary} from "../../models/MonthExpenseSummary";
     RecordItemComponent,
     RecordModule,
     NgApexchartsModule,
+    RouterLink,
   ],
   styleUrl: './dashboard.component.scss'
 })

@@ -1,23 +1,22 @@
 @import "../../../variables";
 .container{
   background-color: $palette-light-black;
-  margin-left: 1vw;
   min-width: 84vw;
   min-height: 100vh;
   border-radius: 10px;
 }
-.chart1{
-  color: $palette-black;
-}
 .recent-expenses-list{
   width: 15vw;
+}
+.chart {
+  color: $palette-black;
 }
 #areaChart{
   min-width: 40vw;
 }
 #pieChart{
   min-width: 25vw;
-  margin-right: 5vw;
+  margin-right: 2vw;
 }
 .container::content{
   padding: 4.5vh 3rem;
