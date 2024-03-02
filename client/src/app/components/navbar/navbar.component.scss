@@ -1,7 +1,7 @@
 @import "../../../variables";
 
 .navbar-body{
-background: $palette-dark-gray;
+background: $palette-light-black;
   border-radius: 10px;
   min-height: 100vh;
   justify-content: space-between;
@@ -28,7 +28,7 @@ background: $palette-dark-gray;
 .sidebar-option:hover{
   cursor: pointer;
   color: $palette-light-green;
-  background-color: $palette-light-gray;
+  background-color: $palette-dark-gray;
   transition: ease-in 0.1s;
 }
 .button-submit{

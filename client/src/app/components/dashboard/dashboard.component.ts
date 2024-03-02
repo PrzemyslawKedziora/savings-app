@@ -4,27 +4,11 @@ import {RecordModel} from "../../models/record.model";
 import {NavbarComponent} from "../navbar/navbar.component";
 import {RecordItemComponent} from "../record-item/record-item.component";
 import {RecordModule} from "../record-item/record.module";
-import {ChartComponent, NgApexchartsModule, ApexAxisChartSeries, ApexChart,
-  ApexXAxis,
-  ApexDataLabels,
-  ApexTitleSubtitle,
-  ApexStroke,
- ApexFill
-} from "ng-apexcharts";
+import {ChartComponent, NgApexchartsModule} from "ng-apexcharts";
+import {AreaChartOptions, PieChartOptions} from "../../models/chart-options.model";
+import {MonthExpenseSummary} from "../../models/MonthExpenseSummary";
 
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
-  stroke: ApexStroke;
-  title: ApexTitleSubtitle;
-  fill: ApexFill,
-};
-export interface MonthlyData {
-  month: string;
-  total_sum: number;
-}
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -38,10 +22,10 @@ export interface MonthlyData {
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit{
-  @ViewChild("chart")
-  chart!: ChartComponent;
+  @ViewChild("areaChart") areaChart!: ChartComponent;
+  @ViewChild("pieChart") pieChart!: ChartComponent;
   records$!: RecordModel[];
-  public chartOptions: ChartOptions = {
+  public areaExpensesSumChartOptions: AreaChartOptions = {
     series: [
       {
         data: []
@@ -49,7 +33,7 @@ export class DashboardComponent implements OnInit{
     ],
     chart: {
       height: 350,
-      type: "line",
+      type: "area",
       foreColor: '#fafafa',
       zoom: {
         enabled: false
@@ -77,6 +61,26 @@ export class DashboardComponent implements OnInit{
       type: 'gradient'
     }
   };
+  public donutExpensesCategoryChartOptions: PieChartOptions = {
+    series: [44, 55, 13, 43, 22],
+    chart: {
+      type: 'donut'
+    },
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: "bottom"
+          }
+        }
+      }
+    ],
+    labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+  }
 
   constructor(
     private recordService: RecordService
@@ -88,15 +92,15 @@ export class DashboardComponent implements OnInit{
         series: [
           {
             name: 'Sum of expenses',
-            data: res.linearChartData.map((item: MonthlyData) => item.total_sum)
+            data: res.linearChartData.map((item: MonthExpenseSummary) => item.total_sum)
           }
         ],
         xaxis: {
-          categories: res.linearChartData.map((item: MonthlyData) => item.month)
+          categories: res.linearChartData.map((item: MonthExpenseSummary) => item.month)
         }
       };
-      this.chartOptions.series = chartData.series;
-      this.chartOptions.xaxis = chartData.xaxis;
+      this.areaExpensesSumChartOptions.series = chartData.series;
+      this.areaExpensesSumChartOptions.xaxis = chartData.xaxis;
       this.records$ = res.records;
 
     })

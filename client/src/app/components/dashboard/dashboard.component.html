@@ -1,17 +1,28 @@
-<div class="flex container">
-  <div id="chart" class="chart1">
-    <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [xaxis]="chartOptions.xaxis"
-      [dataLabels]="chartOptions.dataLabels"
-      [stroke]="chartOptions.stroke"
-      [title]="chartOptions.title"
-      [fill]="chartOptions.fill"
-    ></apx-chart>
+<div class="container flex flex-col justify-between">
+  <div class="charts-container flex items-center justify-between">
+    <div id="areaChart" class="chart">
+      <apx-chart
+        [series]="areaExpensesSumChartOptions.series"
+        [chart]="areaExpensesSumChartOptions.chart"
+        [xaxis]="areaExpensesSumChartOptions.xaxis"
+        [dataLabels]="areaExpensesSumChartOptions.dataLabels"
+        [stroke]="areaExpensesSumChartOptions.stroke"
+        [title]="areaExpensesSumChartOptions.title"
+        [fill]="areaExpensesSumChartOptions.fill"
+      ></apx-chart>
+    </div>
+    <div id="pieChart" class="chart">
+      <apx-chart
+        [series]="donutExpensesCategoryChartOptions.series"
+        [chart]="donutExpensesCategoryChartOptions.chart"
+        [responsive]="donutExpensesCategoryChartOptions.responsive"
+        [labels]="donutExpensesCategoryChartOptions.labels"
+      ></apx-chart>
+    </div>
   </div>
-  <div class="recent-expenses-list">
-    @for (record of records$; track record.id){
+  <div class="recent-expenses-list flex flex-col gap-8">
+    <p class="mx-2 text-xl w-max">Recent expenses</p>
+    @for (record of records$.slice(0,5); track record.id){
       <app-record-item [record]="record"></app-record-item>
     } @empty {
       pusto
