@@ -19,7 +19,7 @@ Route::get('/records', [RecordController::class, 'index']);
 
 Route::get('/records/{userID}', [RecordController::class, 'show']);
 
-Route::get('/records/{id}', [RecordController::class, 'showDetails']);
+Route::get('/records/{id}/details', [RecordController::class, 'showDetails']);
 
 Route::post('/records', [RecordController::class, 'store']);
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Record;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RecordController extends Controller
@@ -14,17 +15,23 @@ class RecordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function show($userID)
     {
-    $monthlySum = DB::table('records')
-        ->selectRaw('DATE_FORMAT(updated_at, "%Y-%m") as month, SUM(moneySpent) as total_sum')
+        $user = User::find($userID);
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        $monthlySum = DB::table('records')
+        ->selectRaw('DATE_FORMAT(updated_at, "%Y-%m") as month, SUM(money_spent) as total_sum')
         ->where('type','expense')
+        ->where('user_id',$userID)
         ->groupBy('month')
         ->orderBy('month')
         ->get();
+        $categorizedExpenses = $this->sumExpensesByCategory($userID);
 
-    // Wynik
-        return ['records'=>Record::all(),'linearChartData' =>$monthlySum];
+        return ['user'=> $user,'records'=>Record::all(),'linearChartData' =>$monthlySum, 'pieChartData' => $categorizedExpenses];
     }
 
     /**
@@ -40,12 +47,12 @@ class RecordController extends Controller
         $validatedData = $request->validate([
             'type' => 'required|in:receipt,expense',
             'category' => 'required|string',
-            'moneySpent' => 'required|numeric',
+            'money_spent' => 'required|numeric',
             'currency' => 'required|string',
             'date' => 'required|string',
             'description' => 'string'
         ]);
-        $validatedData['userID'] = $userId;
+        $validatedData['user_id'] = $userId;
 
         $record = Record::create($validatedData);
 
@@ -57,20 +64,6 @@ class RecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($userID)
-    {
-        $user = User::find($userID);
-
-        if (!$user) {
-            return response()->json(['message' => 'User not found'], 404);
-        }
-        $records = $user->records;
-        if ($records->isEmpty()) {
-            return response()->json(['message' => 'No records found for the user'], 404);
-        }
-        return response()->json(['records' => $records], 200);
-    }
-
     public function showDetails($id)
     {
         $record = Record::find($id);
@@ -96,7 +89,7 @@ class RecordController extends Controller
         $validatedData = $request->validate([
             'type' => 'in:receipt,expense',
             'category' => 'string',
-            'moneySpentInPLN' => 'numeric',
+            'money_spent' => 'numeric',
             'description' => 'nullable|string',
         ]);
         $record->update($validatedData);
@@ -121,5 +114,16 @@ class RecordController extends Controller
         }
         $record->delete();
         return response()->json(['message' => 'Record deleted successfully'], 200);
+    }
+
+    public function sumExpensesByCategory($userId)
+    {
+        $results = Record::where('type', 'expense')
+            ->where('user_id', $userId)
+            ->select('category', DB::raw('SUM(money_spent) as totalSpent'))
+            ->groupBy('category')
+            ->get();
+
+        return $results;
     }
 }

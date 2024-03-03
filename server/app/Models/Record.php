@@ -12,10 +12,10 @@ class Record extends Model
     protected $fillable = [
         'type', //income or expense
         'category',
-        'moneySpent',
+        'money_spent',
         'currency',
         'description',
-        'userID'
+        'user_id'
     ];
 
     protected $table = 'records';
