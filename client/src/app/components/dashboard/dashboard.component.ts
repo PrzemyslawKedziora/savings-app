@@ -6,8 +6,9 @@ import {RecordItemComponent} from "../record-item/record-item.component";
 import {RecordModule} from "../record-item/record.module";
 import {ChartComponent, NgApexchartsModule} from "ng-apexcharts";
 import {AreaChartOptions, PieChartOptions} from "../../models/chart-options.model";
-import {MonthExpenseSummary} from "../../models/MonthExpenseSummary";
+import {monthExpenseSummary} from "../../models/monthExpenseSummary";
 import {RouterLink} from "@angular/router";
+import {pieChartData} from "../../models/api-response.model";
 
 
 @Component({
@@ -44,7 +45,7 @@ export class DashboardComponent implements OnInit{
     dataLabels: {
       enabled: false,
       style:{
-        colors: ['#F44336', '#E91E63', '#9C27B0']
+        colors: ['#F44336']
       },
     },
     stroke: {
@@ -52,8 +53,7 @@ export class DashboardComponent implements OnInit{
       colors: ['green']
     },
     title: {
-      text: "Spending summary",
-      align: "left"
+      text: "Spending summary"
     },
     xaxis: {
 
@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit{
     }
   };
   public donutExpensesCategoryChartOptions: PieChartOptions = {
-    series: [44, 55, 13, 43, 22],
+    series: [],
     chart: {
       type: 'donut'
     },
@@ -81,7 +81,13 @@ export class DashboardComponent implements OnInit{
         }
       }
     ],
-    labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+    labels: [],
+    title: {
+      text: "Expenditure",
+      style: {
+        color: 'white'
+      }
+    }
   }
 
   constructor(
@@ -90,19 +96,28 @@ export class DashboardComponent implements OnInit{
   }
   ngOnInit(): void {
     this.recordService.getRecords().subscribe(res => {
-      const chartData = {
+      const areachartData = {
         series: [
           {
             name: 'Sum of expenses',
-            data: res.linearChartData.map((item: MonthExpenseSummary) => item.total_sum)
+            data: res.linearChartData.map((item: monthExpenseSummary) => item.total_sum)
           }
         ],
         xaxis: {
-          categories: res.linearChartData.map((item: MonthExpenseSummary) => item.month)
+
+          categories: res.linearChartData.map((item: monthExpenseSummary) => item.month)
         }
       };
-      this.areaExpensesSumChartOptions.series = chartData.series;
-      this.areaExpensesSumChartOptions.xaxis = chartData.xaxis;
+
+      const piechartData = {
+        series : res.pieChartData.map((item: pieChartData) => item.totalSpent),
+        labels:  res.pieChartData.map((item: pieChartData)=> item.category.toUpperCase())
+
+      };
+      this.areaExpensesSumChartOptions.series = areachartData.series;
+      this.areaExpensesSumChartOptions.xaxis = areachartData.xaxis;
+      this.donutExpensesCategoryChartOptions.series = piechartData.series;
+      this.donutExpensesCategoryChartOptions.labels = piechartData.labels;
       this.records$ = res.records;
 
     })

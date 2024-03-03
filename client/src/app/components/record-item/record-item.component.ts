@@ -1,13 +1,14 @@
 import {Component, Input} from '@angular/core';
 import {RecordModel} from "../../models/record.model";
-import {DatePipe, TitleCasePipe} from "@angular/common";
+import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-record-item',
   standalone: true,
   imports: [
     DatePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    CurrencyPipe
   ],
   templateUrl: './record-item.component.html',
   styleUrl: './record-item.component.scss'

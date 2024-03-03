@@ -21,5 +21,6 @@ export type PieChartOptions = {
   series: ApexNonAxisChartSeries,
   chart: ApexChart,
   responsive: ApexResponsive[],
-  labels: any
+  labels: any,
+  title: ApexTitleSubtitle
 }

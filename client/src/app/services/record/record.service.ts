@@ -8,12 +8,20 @@ import {ApiResponseModel} from "../../models/api-response.model";
   providedIn: 'root'
 })
 export class RecordService {
+  private _user_id!:string;
+  get user_id(): string {
+    return this._user_id;
+  }
+  set user_id(value: string) {
+    this._user_id = value;
+  }
+
   constructor(
     private http: HttpClient
   ) { }
 
   getRecords(): Observable<ApiResponseModel>{
-    return this.http.get<ApiResponseModel>('http://localhost:8000/api/records')
+    return this.http.get<ApiResponseModel>('http://localhost:8000/api/records/'+'7') //temp
   }
   getUserRecords(){}
 

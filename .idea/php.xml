@@ -126,6 +126,7 @@
       <path value="$PROJECT_DIR$/server/vendor/nette/utils" />
       <path value="$PROJECT_DIR$/server/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/server/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/server/vendor/fruitcake/laravel-cors" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

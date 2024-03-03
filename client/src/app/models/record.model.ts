@@ -1,10 +1,10 @@
 export interface RecordModel{
-  id:string,
+  record_id:string,
   type:string,
   category:string,
-  moneySpent:number,
+  money_spent:number,
   description:string,
-  userID:string,
+  user_id:string,
   created_at:string,
   updated_at:string,
 }
