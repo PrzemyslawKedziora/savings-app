@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {RecordService} from "../../services/record/record.service";
 import {RecordModel} from "../../models/record.model";
 import {NavbarComponent} from "../navbar/navbar.component";
-import {RecordItemComponent} from "../record-item/record-item.component";
-import {RecordModule} from "../record-item/record.module";
+import {RecordItemComponent} from "../record/record-item/record-item.component";
+import {RecordModule} from "../record/record.module";
 import {ChartComponent, NgApexchartsModule} from "ng-apexcharts";
 import {AreaChartOptions, PieChartOptions} from "../../models/chart-options.model";
 import {monthExpenseSummary} from "../../models/monthExpenseSummary";
@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit{
   @ViewChild("areaChart") areaChart!: ChartComponent;
   @ViewChild("pieChart") pieChart!: ChartComponent;
   records$!: RecordModel[];
+  subscriptions$!:RecordModel[];
   public areaExpensesSumChartOptions: AreaChartOptions = {
     series: [
       {
@@ -92,8 +93,7 @@ export class DashboardComponent implements OnInit{
 
   constructor(
     private recordService: RecordService
-  ) {
-  }
+  ) {}
   ngOnInit(): void {
     this.recordService.getRecords().subscribe(res => {
       const areachartData = {
@@ -119,6 +119,8 @@ export class DashboardComponent implements OnInit{
       this.donutExpensesCategoryChartOptions.series = piechartData.series;
       this.donutExpensesCategoryChartOptions.labels = piechartData.labels;
       this.records$ = res.records;
+      this.subscriptions$ = res.records.filter((record)=> record.category == 'subscription');
+      console.log(this.subscriptions$)
 
     })
   }

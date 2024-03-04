@@ -1,0 +1,34 @@
+<div class="container flex justify-between items-center align-baseline record-container">
+  <div class="main-info flex items-center gap-y-2 gap-x-24">
+    <div class="record-type flex items-center justify-center"
+         [class.expense]="record.type === 'expense'" [class.income]="record.type === 'income'" [class.subscription]="record.category === 'subscription'">
+      @if(record.category === 'subscription'){
+        <i class="fa-solid fa-money-bill-wheat icon"></i>
+      } @else {
+        <i class="fa-solid fa-money-bills icon"></i>
+      }
+    </div>
+    <div class="record-info">
+      <p>
+        @if(record.description){
+          {{record.description| titlecase}}
+        } @else {
+          {{record.category | titlecase}}
+        }
+      </p>
+    </div>
+    <div class="record-date">
+      <p>{{record.updated_at | date:'MMM dd'}}</p>
+    </div>
+    <div class="record-time">
+      <p>{{record.updated_at | date:'shortTime'}}</p>
+    </div>
+  </div>
+  <div class="value">
+    {{ (record.type === 'expense' ? '-' : '+') + (record.money_spent | currency) }}
+  </div>
+  <button class="actions-button">
+    <i class="fa-solid fa-list-ul"></i>
+  </button>
+</div>
+

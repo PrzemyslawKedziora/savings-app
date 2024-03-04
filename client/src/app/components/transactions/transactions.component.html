@@ -1,0 +1,37 @@
+<div class="container flex">
+  <div class="expenses-container flex flex-col  gap-y-6 mr-24">
+    <p>Expenses</p>
+    <div class="action-bar">
+      <button class="button new-expense">+ Add New</button>
+      <button class="button sort-button">
+        <i class="fa-solid fa-filter"></i>
+        Sort by
+      </button>
+    </div>
+    <div class="flex flex-col gap-y-12 records">
+      @for (record of records$; track record.record_id){
+        <app-record-item-detailed [record]="record"></app-record-item-detailed>
+      }
+    </div>
+  </div>
+  <div class="subscriptions-container flex flex-col  gap-y-6">
+    <p>Subcriptions</p>
+    <div class="action-bar">
+      <button class="button new-sub">+ Add New</button>
+      <button class="button sort-button">
+        <i class="fa-solid fa-filter"></i>
+        Sort by
+      </button>
+    </div>
+    <div class="flex flex-col gap-y-12 records">
+      @for (subscription of subscriptions$; track subscription.record_id){
+        <div class="flex justify-center items-start">
+          <app-record-item [record]="subscription" [dateFormat]="'MMM d'"></app-record-item>
+          <button class="actions-button">
+            <i class="fa-solid fa-list-ul"></i>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</div>

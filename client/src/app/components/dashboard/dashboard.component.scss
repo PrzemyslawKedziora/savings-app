@@ -1,13 +1,14 @@
 @import "../../../variables";
 .container{
   background-color: $palette-light-black;
-  min-width: 84vw;
+  min-width: 82vw;
   min-height: 100vh;
   border-radius: 10px;
 }
 .recent-expenses-list{
-  width: 15vw;
+  width: 20vw;
 }
+
 .chart {
   color: $palette-black;
 }

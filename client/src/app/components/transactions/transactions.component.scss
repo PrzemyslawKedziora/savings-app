@@ -1,0 +1,36 @@
+@import "../../../variables";
+.container{
+  background-color: $palette-light-black;
+  min-width: 82vw;
+  min-height: 100vh;
+  border-radius: 10px;
+}
+.container::content{
+  padding: 4.5vh 3rem;
+}
+.expenses-container{
+  width: 45vw;
+}
+.action-bar{
+  display: flex;
+  gap: 20px;
+}
+.button{
+  width: 90px;
+  height: 30px;
+  border-radius: 10px;
+  color: $palette-dark-gray;
+  background: $palette-white;
+}
+.button:hover{
+  color: $palette-light-green;
+  transition: ease-in 0.1s;
+}
+.sort-button{
+  background-color: $palette-black;
+}
+app-record-item{
+  width: 20vw;
+}
+
+

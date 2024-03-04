@@ -1,16 +1,23 @@
-@import "../../../variables";
+@import "../../../../variables";
 .record-type{
   background-color: $palette-black;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
 }
+.record-container{
+  min-width: max-content;
+}
 .expense{
-  color: $palette-orange;
+  color: $palette-red;
 }
 .income{
   color: $palette-light-green;
 }
+.subscription{
+  color: $palette-dark-green;
+}
 .record-date{
   font-size: 12px;
+  color: $palette-light-gray;
 }

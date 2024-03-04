@@ -1,0 +1,26 @@
+<div class="container flex justify-between record-container">
+<div class="main-info flex items-center gap-2">
+  <div class="record-type flex items-center justify-center"
+       [class.expense]="record.type === 'expense'" [class.income]="record.type === 'income'" [class.subscription]="record.category === 'subscription'">
+    @if(record.category === 'subscription'){
+      <i class="fa-solid fa-money-bill-wheat"></i>
+    } @else {
+      <i class="fa-solid fa-money-bills"></i>
+    }
+  </div>
+  <div class="record-info">
+    <p>
+      @if(record.category === 'subscription'){
+        {{record.description | titlecase}}
+      } @else {
+        {{record.category | titlecase}}
+      }
+    </p>
+    <p class="record-date">{{record.updated_at | date:dateFormat}}</p>
+  </div>
+</div>
+  <div class="value">
+    {{record.type =='expense' ? '-' : '+'}}
+    {{record.money_spent | currency}}
+  </div>
+</div>

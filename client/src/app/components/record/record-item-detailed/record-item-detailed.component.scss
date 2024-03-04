@@ -1,0 +1,25 @@
+@import "../../../../variables";
+.record-info{
+  width: 4vw;
+}
+.expense{
+  color: $palette-red;
+}
+.income{
+  color: $palette-light-green;
+}
+.subscription{
+  color: $palette-dark-green;
+}
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $palette-black;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.actions-button{
+  color: $palette-light-green
+}

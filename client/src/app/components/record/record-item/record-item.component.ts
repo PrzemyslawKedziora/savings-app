@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {RecordModel} from "../../models/record.model";
+import {RecordModel} from "../../../models/record.model";
 import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
 
 @Component({
@@ -16,4 +16,5 @@ import {CurrencyPipe, DatePipe, TitleCasePipe} from "@angular/common";
 export class RecordItemComponent {
 
   @Input() record!: RecordModel;
+  @Input() dateFormat: string = 'short';
 }
