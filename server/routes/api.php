@@ -29,6 +29,8 @@ Route::delete('/records/{id}', [RecordController::class, 'destroy']);
 
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
+Route::post('/register', [UserController::class, 'register'])->name('register');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
