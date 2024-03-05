@@ -5,10 +5,12 @@
   min-height: 100vh;
   border-radius: 10px;
 }
+p{
+  font-size: 24px;
+}
 .recent-expenses-list{
   width: 20vw;
 }
-
 .chart {
   color: $palette-black;
 }

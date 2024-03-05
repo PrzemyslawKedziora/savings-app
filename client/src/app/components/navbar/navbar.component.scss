@@ -39,3 +39,10 @@ background: $palette-light-black;
 .button-submit:hover{
   background-color: $palette-white-hover;
 }
+.container-3d{
+
+  background: linear-gradient(135deg, $palette-black 0%, $palette-light-black 35%, $palette-dark-gray 100%);
+  border-radius: 25px;
+  margin-bottom: 10px;
+
+}

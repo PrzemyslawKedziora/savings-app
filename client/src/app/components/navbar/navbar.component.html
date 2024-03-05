@@ -1,7 +1,9 @@
 <div class="flex flex-col items-center navbar-body">
   <div class="user-info flex flex-col items-center justify-center">
-    <img src="assets/unknown-user-pic.png" alt="profile picture" class="w-32">
-        <p>Hello user!</p>
+    <div class="container-3d">
+      <img src="assets/main_happy_face.png" alt="profile picture" class="w-32">
+    </div>
+    <p>Hello user!</p>
   </div>
 <div class="flex flex-col items-center navigation-list">
   <div class="sidebar-option" routerLink="/main/dashboard">
@@ -36,6 +38,6 @@
     </span>
   </div>
 </div>
-  <button class="sidebar-option button-submit flex items-center justify-center h-10 mt-4 rounded-full w-32">
+  <button class="sidebar-option button-submit flex items-center justify-center h-10 mt-4 rounded-full w-32" (click)="userService.logOutUser()">
     <i class="fa-solid fa-right-to-bracket fa-sm"></i>Log out</button>
 </div>

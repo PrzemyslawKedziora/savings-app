@@ -29,9 +29,21 @@ export class LoginFormComponent{
 
 
   onSubmit() {
+    if (this.userService.loggedIn){
+      Swal.fire({
+        icon: "error",
+        title: "You are already logged in!",
+        showConfirmButton: false,
+        background: '#424b5a',
+        color: '#fafafa',
+        timer: 1500
+      })
+      return;
+    }
     if (this.loginForm.get('email')?.value && this.loginForm.get('password')?.value) {
       this.userService.loginUser(this.loginForm.value)
         .pipe(catchError(() => {
+          this.userService.loggedIn = false;
           return Swal.fire({
             icon: "error",
             title: "Invalid email or password",
@@ -43,7 +55,7 @@ export class LoginFormComponent{
         }))
         .subscribe((res) => {
           if ('status' in res && res.status) {
-              this.userService.loggedIn = true;
+            this.userService.loggedIn = true;
               sessionStorage.setItem('_token', res.token);
               Swal.fire({
                 icon: "success",
