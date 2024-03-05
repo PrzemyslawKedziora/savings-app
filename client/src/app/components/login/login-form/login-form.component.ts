@@ -4,6 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {UserService} from "../../../services/user/user.service";
 import {catchError} from "rxjs";
 import Swal from 'sweetalert2';
+import {RecordService} from "../../../services/record/record.service";
 @Component({
   selector: 'app-login-form',
   standalone: true,
@@ -24,6 +25,7 @@ export class LoginFormComponent{
   })
   constructor(private fb: FormBuilder,
               private userService: UserService,
+              private recordService: RecordService,
               private router: Router) {
   }
 
@@ -55,8 +57,11 @@ export class LoginFormComponent{
         }))
         .subscribe((res) => {
           if ('status' in res && res.status) {
+            console.log(res)
             this.userService.loggedIn = true;
               sessionStorage.setItem('_token', res.token);
+              sessionStorage.setItem('_id', res.user.id);
+              this.recordService.user_id =  res.user.id;
               Swal.fire({
                 icon: "success",
                 title: "User has been successfully logged in!",

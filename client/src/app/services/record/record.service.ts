@@ -18,10 +18,12 @@ export class RecordService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.user_id = sessionStorage.getItem('_id') ?? '';
+  }
 
   getRecords(): Observable<ApiResponseModel>{
-    return this.http.get<ApiResponseModel>('http://localhost:8000/api/records/'+'7') //temp
+    return this.http.get<ApiResponseModel>('http://localhost:8000/api/records/'+this.user_id)
   }
   getUserRecords(){}
 

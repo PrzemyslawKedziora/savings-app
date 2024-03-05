@@ -15,23 +15,23 @@ class RecordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($userID)
+    public function show($user_id)
     {
-        $user = User::find($userID);
+        $user = User::find($user_id);
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
         }
 
-        $monthlySum = DB::table('records')
+        $monthlySum = $user->records()
         ->selectRaw('DATE_FORMAT(updated_at, "%Y-%m") as month, SUM(money_spent) as total_sum')
         ->where('type','expense')
-        ->where('user_id',$userID)
+        ->where('user_id',$user_id)
         ->groupBy('month')
         ->orderBy('month')
         ->get();
-        $categorizedExpenses = $this->sumExpensesByCategory($userID);
+        $categorizedExpenses = $this->sumExpensesByCategory($user_id);
 
-        return ['user'=> $user,'records'=>Record::all(),'linearChartData' =>$monthlySum, 'pieChartData' => $categorizedExpenses];
+        return ['user'=> $user,'records'=>$user->records,'linearChartData' =>$monthlySum, 'pieChartData' => $categorizedExpenses];
     }
 
     /**

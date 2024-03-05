@@ -15,9 +15,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/records', [RecordController::class, 'index']);
+// Route::get('/records', [RecordController::class, 'index']);
 
-Route::get('/records/{userID}', [RecordController::class, 'show']);
+Route::get('/records/{user_id}', [RecordController::class, 'show']);
 
 Route::get('/records/{id}/details', [RecordController::class, 'showDetails']);
 

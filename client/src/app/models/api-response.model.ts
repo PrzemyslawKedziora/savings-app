@@ -1,6 +1,6 @@
 import {RecordModel} from "./record.model";
 import {monthExpenseSummary} from "./monthExpenseSummary";
-import {UserModel} from "./user";
+import {UserModel} from "./user-model";
 
 export interface ApiResponseModel{
   user:UserModel,
@@ -10,7 +10,8 @@ export interface ApiResponseModel{
 }
 export interface ApiResponseUser{
   status:boolean,
-  token:string
+  token:string,
+  user:UserModel
 }
 
 export interface pieChartData{

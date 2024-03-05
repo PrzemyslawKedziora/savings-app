@@ -104,7 +104,6 @@ export class DashboardComponent implements OnInit{
           }
         ],
         xaxis: {
-
           categories: res.linearChartData.map((item: monthExpenseSummary) => item.month)
         }
       };
@@ -120,8 +119,6 @@ export class DashboardComponent implements OnInit{
       this.donutExpensesCategoryChartOptions.labels = piechartData.labels;
       this.records$ = res.records;
       this.subscriptions$ = res.records.filter((record)=> record.category == 'subscription');
-      console.log(this.subscriptions$)
-
     })
   }
 }

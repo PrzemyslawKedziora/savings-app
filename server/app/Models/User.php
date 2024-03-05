@@ -47,6 +47,6 @@ class User extends Authenticatable
 
     public function records()
     {
-        return $this->hasMany(Record::class, 'userID');
+        return $this->hasMany(Record::class, 'user_id');
     }
 }
