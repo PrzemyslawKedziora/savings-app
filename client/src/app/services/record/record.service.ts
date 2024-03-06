@@ -25,7 +25,6 @@ export class RecordService {
   getRecords(): Observable<ApiResponseModel>{
     return this.http.get<ApiResponseModel>('http://localhost:8000/api/records/'+this.user_id)
   }
-  getUserRecords(){}
 
   createRecord(record:RecordModel){}
   updateRecord(record: RecordModel){

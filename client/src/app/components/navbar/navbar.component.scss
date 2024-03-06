@@ -20,15 +20,19 @@ background: $palette-light-black;
   padding-left: 0.5rem;
   height: 4vh;
   border-radius: 10px;
-}
 
-.sidebar-option:focus{
-  color: $palette-light-green;
+  &.active {
+    color: $palette-light-green;
+  }
 }
 .sidebar-option:hover{
   cursor: pointer;
   color: $palette-light-green;
   background-color: $palette-dark-gray;
+  transition: ease-in 0.1s;
+}
+.sidebar-option:not(:hover){
+  background-color: $palette-light-black;
   transition: ease-in 0.1s;
 }
 .button-submit{
@@ -40,9 +44,7 @@ background: $palette-light-black;
   background-color: $palette-white-hover;
 }
 .container-3d{
-
   background: linear-gradient(135deg, $palette-black 0%, $palette-light-black 35%, $palette-dark-gray 100%);
   border-radius: 25px;
   margin-bottom: 10px;
-
 }

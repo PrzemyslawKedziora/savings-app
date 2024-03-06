@@ -2,6 +2,20 @@
 .record-info{
   width: 5vw;
 }
+.record-container{
+  min-height: 4rem;
+  padding: 0.25vh 0.5vw;
+  border-radius: 25px;
+}
+.record-container:hover{
+  background-color: $palette-dark-gray;
+  transform: scale(1.1);
+  transition: ease-in 0.3s;
+}
+.record-container:not(:hover){
+   background-color: $palette-light-black;
+   transition: ease-in 0.3s;
+ }
 .expense{
   color: $palette-red;
 }

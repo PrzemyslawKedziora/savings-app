@@ -6,38 +6,38 @@
     <p>Hello user!</p>
   </div>
 <div class="flex flex-col items-center navigation-list">
-  <div class="sidebar-option" routerLink="/main/dashboard">
+  <div class="sidebar-option" routerLink="/main/dashboard" routerLinkActive="active">
     <i class="fa-solid fa-chart-pie"></i>
     <span>
       Dashboard
     </span>
   </div>
-  <div class="sidebar-option" routerLink="/main/transactions">
+  <div class="sidebar-option" routerLink="/main/transactions" routerLinkActive="active">
     <i class="fa-solid fa-money-bills"></i>
     <span>
       Transactions
     </span>
   </div>
-  <div class="sidebar-option" routerLink="/main/portfolio">
+  <div class="sidebar-option" routerLink="/main/portfolio" routerLinkActive="active">
     <i class="fa-solid fa-wallet"></i>
     <span>
       Portfolio
     </span>
   </div>
   <div class="border-bot border-t-2 w-32"></div>
-  <div class="sidebar-option" routerLink="/main/settings">
+  <div class="sidebar-option" routerLink="/main/settings" routerLinkActive="active">
     <i class="fa-solid fa-gear"></i>
     <span>
       Settings
     </span>
   </div>
-  <div class="sidebar-option" routerLink="/main/support">
+  <div class="sidebar-option" routerLink="/main/support" routerLinkActive="active">
     <i class="fa-brands fa-rocketchat"></i>
     <span>
       Support
     </span>
   </div>
 </div>
-  <button class="sidebar-option button-submit flex items-center justify-center h-10 mt-4 rounded-full w-32" (click)="userService.logOutUser()">
+  <button class="button-submit flex items-center justify-center h-10 mt-4 rounded-full w-32" (click)="userService.logOutUser()">
     <i class="fa-solid fa-right-to-bracket fa-sm"></i>Log out</button>
 </div>

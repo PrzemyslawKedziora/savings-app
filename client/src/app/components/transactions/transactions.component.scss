@@ -32,6 +32,10 @@ p{
 .sort-button{
   background-color: $palette-black;
 }
+.sort-button:hover{
+  background-color: $palette-dark-gray;
+  color: $palette-white-hover;
+}
 app-record-item{
   width: 20vw;
 }
