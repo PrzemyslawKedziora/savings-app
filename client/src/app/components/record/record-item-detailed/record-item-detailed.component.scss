@@ -1,4 +1,7 @@
 @import "../../../../variables";
+p{
+  color: $palette-white;
+}
 .record-info{
   width: 5vw;
 }
@@ -36,4 +39,8 @@
 }
 .actions-button{
   color: $palette-light-green
+}
+.description{
+  font-size: 0.75rem;
+  color: $palette-light-gray;
 }

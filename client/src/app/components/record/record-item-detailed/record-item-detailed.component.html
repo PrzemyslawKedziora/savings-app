@@ -18,13 +18,16 @@
       </p>
     </div>
     <div class="record-date">
+      <p class="description">Date</p>
       <p>{{record.updated_at | date:'MMM dd'}}</p>
     </div>
     <div class="record-time">
+      <p class="description">Time</p>
       <p>{{record.updated_at | date:'shortTime'}}</p>
     </div>
   </div>
   <div class="value">
+    <p class="description">Amount</p>
     {{ (record.type === 'expense' ? '-' : '+') + (record.money_spent | currency) }}
   </div>
   <button class="actions-button">

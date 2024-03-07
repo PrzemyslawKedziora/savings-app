@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: '',component: LoginComponent, pathMatch: "full"},
   {path: 'login',component: LoginComponent,canMatch:[canLoad]},
   {path: 'register',component: RegisterComponent},
-  {path: 'main',component: MainComponent, children: [
+  {path: 'main',component: MainComponent, title: 'YourSavings', children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     {path: 'dashboard',component: DashboardComponent},
     {path: 'transactions',component: TransactionsComponent},
