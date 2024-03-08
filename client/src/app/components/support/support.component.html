@@ -1,0 +1,13 @@
+<div class="container flex flex-col items-center justify-center gap-2">
+  <h1>Found bug? Contact us!</h1>
+  <form [formGroup]="supportTicketForm" class="flex flex-col justify-center items-center gap-y-12">
+    <select class="w-64 h-8 rounded-full" formControlName="ticketTopic">
+      @for (item of topics;track item){
+        <option>{{item}}</option>
+      }
+    </select>
+    <textarea
+      formControlName="ticketMessage" cols="30" rows="10" class="bg-transparent" required></textarea>
+    <button type="submit" class="rounded-full bg-blue-500 text-white-50 w-48 h-12">Send message</button>
+  </form>
+</div>

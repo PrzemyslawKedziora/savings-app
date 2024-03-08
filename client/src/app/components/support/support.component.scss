@@ -1,0 +1,18 @@
+@import "../../../variables";
+.container{
+background-color: $palette-light-black;
+  min-width: 82vw;
+  min-height: 100vh;
+  border-radius: 10px;
+}
+textarea{
+  border: 3px double $palette-white;
+  border-radius: 15px;
+}
+textarea::content{
+  padding: 1rem;
+}
+h1{
+  color: $palette-white;
+  font-size: 2rem;
+}
