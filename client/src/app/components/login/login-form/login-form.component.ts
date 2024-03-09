@@ -61,6 +61,7 @@ export class LoginFormComponent{
             this.userService.loggedIn = true;
               sessionStorage.setItem('_token', res.token);
               sessionStorage.setItem('_id', res.user.id);
+              sessionStorage.setItem('_user', res.user.email);
               this.recordService.user_id =  res.user.id;
               Swal.fire({
                 icon: "success",

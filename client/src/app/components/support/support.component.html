@@ -1,13 +1,15 @@
 <div class="container flex flex-col items-center justify-center gap-2">
   <h1>Found bug? Contact us!</h1>
-  <form [formGroup]="supportTicketForm" class="flex flex-col justify-center items-center gap-y-12">
-    <select class="w-64 h-8 rounded-full" formControlName="ticketTopic">
+  <form [formGroup]="supportTicketForm" class="flex flex-col justify-center items-center gap-y-12" (ngSubmit)="onSubmit()">
+    <select class="w-96 h-12 rounded-full bg-transparent" formControlName="title" id="select" (click)="changeColors()">
+      <option disabled>Select subject</option>
       @for (item of topics;track item){
-        <option>{{item}}</option>
+        <option [value]="item">{{item}}</option>
       }
     </select>
     <textarea
-      formControlName="ticketMessage" cols="30" rows="10" class="bg-transparent" required></textarea>
+      formControlName="message" cols="30" rows="10" class="bg-transparent w-96"
+      placeholder="Message..." required></textarea>
     <button type="submit" class="rounded-full bg-blue-500 text-white-50 w-48 h-12">Send message</button>
   </form>
 </div>

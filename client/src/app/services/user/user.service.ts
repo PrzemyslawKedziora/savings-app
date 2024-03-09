@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {ApiResponseUser} from "../../models/api-response.model";
 import {Router} from "@angular/router";
 import Swal from "sweetalert2";
+import {FormGroup} from "@angular/forms";
 
 
 @Injectable({
@@ -52,6 +53,10 @@ export class UserService {
   }
   deleteUser(user: UserModel){
 
+  }
+
+  sendMessageToSupport(formData: FormGroup): Observable<any>{
+    return this.http.post(environment.apiUrl+'support',formData.value);
   }
 
   storeUserInStorage(user: UserModel){}

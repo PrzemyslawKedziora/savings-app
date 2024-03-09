@@ -5,6 +5,21 @@ background-color: $palette-light-black;
   min-height: 100vh;
   border-radius: 10px;
 }
+select{
+  border: 3px double $palette-white;
+  color:$palette-light-gray;
+  padding:0 1rem;
+}
+option{
+  background: $palette-light-black;
+  color: $palette-white;
+  padding: 0.5rem;
+
+  &:first-child {
+    padding: 0;
+    color: $palette-light-gray;
+  }
+}
 textarea{
   border: 3px double $palette-white;
   border-radius: 15px;
@@ -14,5 +29,6 @@ textarea::content{
 }
 h1{
   color: $palette-white;
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-bottom: 5rem;
 }
