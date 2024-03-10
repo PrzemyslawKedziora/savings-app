@@ -12,7 +12,7 @@ import {UserService} from "../../services/user/user.service";
   styleUrl: './support.component.scss'
 })
 export class SupportComponent{
-  topics = ['teamt jedyneczka','jedziemy po ziolooo d-_b','jest poszukiwany przez mobbyn']
+  topics = ['Found bug','Need help with app','Other']
   defaultTopic = 'Select subject';
   supportTicketForm = this.fb.group({
     title: [this.defaultTopic, [Validators.required, Validators.minLength(12), Validators.maxLength(255)]],
