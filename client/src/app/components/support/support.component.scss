@@ -32,3 +32,15 @@ h1{
   font-size: 3rem;
   margin-bottom: 5rem;
 }
+button{
+  transition: ease-in-out 0.3s;
+}
+.button-active{
+  cursor: pointer;
+  background: $palette-blue;
+  transition: ease-in-out 0.3s;
+}
+.button-active:hover{
+  transform: scale(1.05);
+  transition: ease-in 0.1s;
+}

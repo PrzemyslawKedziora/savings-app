@@ -10,6 +10,11 @@
     <textarea
       formControlName="message" cols="30" rows="10" class="bg-transparent w-96"
       placeholder="Message..." required></textarea>
-    <button type="submit" class="rounded-full bg-blue-500 text-white-50 w-48 h-12">Send message</button>
+ <div>
+   <button type="submit" class="btn rounded-full border-2 text-white-50 w-48 h-12"
+           [disabled]="supportTicketForm.invalid"
+           [ngClass]="{'button-active' : supportTicketForm.valid}"
+   >Send message</button>
+ </div>
   </form>
 </div>
