@@ -30,17 +30,26 @@
       @for (record of records$.slice(0,5); track record.record_id){
         <app-record-item [record]="record"></app-record-item>
       } @empty {
-        pusto
+        No records yet.
       }
     </div>
-    <div class="flex flex-col gap-y-8">
-      <p class="mx-2 text-xl w-max">Subscriptions</p>
-      <div class="grid grid-flow-row-dense 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2  md:grid-cols-1  gap-y-8 subscription-list">
-        @for (subscription of subscriptions$.slice(0,5); track subscription.record_id){
-          <app-record-item [record]="subscription" [dateFormat]="'MMM dd'"></app-record-item>
-        } @empty {
-          pusto
-        }
+    <div class="flex flex-col">
+      <div class="flex flex-col gap-y-8 h-[12vh] mb-4">
+        <p class="mx-2 text-xl w-max">Subscriptions</p>
+        <div class="grid grid-flow-row-dense 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-x-6 md:grid-cols-1 gap-y-8 subscription-list">
+          @for (subscription of subscriptions$.slice(0,5); track subscription.record_id){
+            <app-record-item [record]="subscription" [dateFormat]="'MMM dd'"></app-record-item>
+          } @empty {
+            No subscriptions yet.
+          }
+        </div>
+      </div>
+      <div class="flex stats-container items-center">
+        <div class="flex flex-col items-start  gap-y-8">
+          <p class="text-lg">Stats</p>
+          <p class="stats-description">Keep track of your expenses</p>
+          <button class="rounded-full">See all</button>
+        </div>
       </div>
     </div>
   </div>
