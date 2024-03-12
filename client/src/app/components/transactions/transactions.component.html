@@ -2,11 +2,18 @@
   <div class="expenses-container flex flex-col  gap-y-6 mr-24">
     <p>Expenses</p>
     <div class="action-bar">
-      <button class="button new-expense">+ Add New</button>
-      <button class="button sort-button">
-        <i class="fa-solid fa-filter"></i>
-        Sort by
-      </button>
+      <button class="button new-expense" (click)="openAddRecordDialog()">+ Add New</button>
+      <div class="sort">
+        <button class="button sort-button">
+          <i class="fa-solid fa-filter"></i>
+          Sort by
+        </button>
+        <ul class="sort-type-list">
+          <li (click)="sortby('name',records$)">Name</li>
+          <li (click)="sortby('date',records$)">Time</li>
+          <li (click)="sortby('amount',records$)">Amount</li>
+        </ul>
+      </div>
     </div>
     <div class="flex flex-col gap-y-12 records">
       @for (record of records$; track record.record_id){
@@ -18,10 +25,17 @@
     <p>Subscriptions</p>
     <div class="action-bar">
       <button class="button new-sub">+ Add New</button>
-      <button class="button sort-button">
-        <i class="fa-solid fa-filter"></i>
-        Sort by
-      </button>
+      <div class="sort">
+        <button class="button sort-button">
+          <i class="fa-solid fa-filter"></i>
+          Sort by
+        </button>
+        <ul class="sort-type-list">
+          <li (click)="sortby('name',subscriptions$)">Name</li>
+          <li (click)="sortby('date',subscriptions$)">Time</li>
+          <li (click)="sortby('amount',subscriptions$)">Amount</li>
+        </ul>
+      </div>
     </div>
     <div class="flex flex-col gap-y-12 records">
       @for (subscription of subscriptions$; track subscription.record_id){

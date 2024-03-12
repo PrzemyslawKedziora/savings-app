@@ -6,11 +6,29 @@
   border-radius: 10px;
 }
 .container::content{
-  padding: 4.5vh 3rem;
+  padding: 4.5vh 2rem;
 }
 .expenses-container{
   width: 45vw;
 }
+.records {
+  position: relative;
+}
+
+.records app-record-item-detailed {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.records:hover app-record-item-detailed {
+  opacity: 0.2;
+}
+
+.records app-record-item-detailed:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 p{
   font-size: 24px;
 }
@@ -39,6 +57,36 @@ p{
 }
 app-record-item{
   width: 20vw;
+}
+.sort-type-list{
+  display: none;
+
+}
+.sort:hover ul{
+  display: block;
+  width: 90px;
+  position: absolute;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  background-color: $palette-dark-gray;
+  z-index: 1;
+}
+.sort-type-list:hover li{
+  display: block;
+}
+li{
+  padding: 10px;
+}
+li:last-child:hover{
+  border-radius: 0 0 10px 10px;
+}
+li:hover{
+  cursor: pointer;
+  background-color: $palette-black;
+  transition: background ease-in .3s;
+}
+.sort:hover .button{
+  border-radius: 10px 10px 0 0;
 }
 
 

@@ -1,5 +1,4 @@
 <div class="container flex justify-between items-center align-baseline record-container">
-  <div class="main-info flex items-center gap-y-2 gap-x-24">
     <div class="record-type flex items-center justify-center"
          [class.expense]="record.type === 'expense'" [class.income]="record.type === 'income'" [class.subscription]="record.category === 'subscription'">
       @if(record.category === 'subscription'){
@@ -25,7 +24,6 @@
       <p class="description">Time</p>
       <p>{{record.updated_at | date:'shortTime'}}</p>
     </div>
-  </div>
   <div class="value">
     <p class="description">Amount</p>
     {{ (record.type === 'expense' ? '-' : '+') + (record.money_spent | currency) }}

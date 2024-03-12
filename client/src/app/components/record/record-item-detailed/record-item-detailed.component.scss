@@ -13,11 +13,11 @@ p{
 .record-container:hover{
   background-color: $palette-dark-gray;
   transform: scale(1.1);
-  transition: ease-in 0.3s;
+  transition: ease-in 0.2s;
 }
 .record-container:not(:hover){
    background-color: $palette-light-black;
-   transition: ease-in 0.3s;
+   transition: ease-in 0.2s;
  }
 .expense{
   color: $palette-red;
@@ -27,6 +27,10 @@ p{
 }
 .subscription{
   color: $palette-dark-green;
+}
+.record-info p ,.value p{
+  min-width: 80px;
+  text-align: center;
 }
 .icon{
   display: flex;
@@ -38,7 +42,13 @@ p{
   border-radius: 50%;
 }
 .actions-button{
-  color: $palette-light-green
+  color: $palette-white;
+  transition: ease-in-out .1s;
+}
+
+.actions-button:hover{
+  color: $palette-light-green;
+  transition: ease-in-out .1s;
 }
 .description{
   font-size: 0.75rem;
