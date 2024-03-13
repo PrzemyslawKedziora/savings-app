@@ -9,6 +9,7 @@ import {AreaChartOptions, PieChartOptions} from "../../models/chart-options.mode
 import {monthExpenseSummary} from "../../models/monthExpenseSummary";
 import {RouterLink} from "@angular/router";
 import {pieChartData} from "../../models/api-response.model";
+import {UserStatCardComponent} from "./user-stat-card/user-stat-card.component";
 
 
 @Component({
@@ -21,6 +22,7 @@ import {pieChartData} from "../../models/api-response.model";
     RecordModule,
     NgApexchartsModule,
     RouterLink,
+    UserStatCardComponent,
   ],
   styleUrl: './dashboard.component.scss'
 })
@@ -121,6 +123,8 @@ export class DashboardComponent implements OnInit{
       this.subscriptions$ = res.records.filter((record)=> record.category == 'subscription');
     })
   }
+
+  protected readonly sessionStorage = sessionStorage;
 }
 
 

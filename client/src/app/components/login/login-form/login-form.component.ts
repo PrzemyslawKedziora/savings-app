@@ -62,6 +62,9 @@ export class LoginFormComponent{
               sessionStorage.setItem('_token', res.token);
               sessionStorage.setItem('_id', res.user.id);
               sessionStorage.setItem('_user', res.user.email);
+              sessionStorage.setItem('balance', res.user.balance.toString());
+              sessionStorage.setItem('goal', res.user.savingsGoal.toString());
+              sessionStorage.setItem('limit', res.user.budgetLimit.toString());
               this.recordService.user_id =  res.user.id;
               Swal.fire({
                 icon: "success",

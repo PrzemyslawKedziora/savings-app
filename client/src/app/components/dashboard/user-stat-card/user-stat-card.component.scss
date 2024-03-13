@@ -1,0 +1,14 @@
+@import "../../../../variables";
+.container{
+  background-color: $palette-light-black;
+  border-radius: 25px;
+  border: 2px solid $palette-light-gray;
+  transition: border-color ease-in 0.2s;
+  height: 12rem;
+  width: 8vw;
+  padding: 4vh 1vw;
+}
+.container:hover{
+  border-color: $palette-light-green;
+  transition: border-color ease-in 0.2s;
+}

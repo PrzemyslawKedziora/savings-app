@@ -48,7 +48,13 @@
         <div class="flex flex-col items-start  gap-y-8">
           <p class="text-lg">Stats</p>
           <p class="stats-description">Keep track of your expenses</p>
-          <button class="rounded-full">See all</button>
+          <button class="rounded-full" routerLink="/main/portfolio">See all</button>
+        </div>
+        <div class="flex flex-row gap-6 ml-4 stats-card-container">
+          <app-user-stat-card [title]="'Balance'" [data]="'$'+sessionStorage.getItem('balance') ?? ''"></app-user-stat-card>
+          <app-user-stat-card [title]="'Monthly Goal'" [data]="'$'+sessionStorage.getItem('goal') ?? ''"></app-user-stat-card>
+          <app-user-stat-card [title]="'Monthly Expense Limit'" [data]="'$'+sessionStorage.getItem('limit') ?? ''"></app-user-stat-card>
+          <app-user-stat-card [title]="'Expenses'" [data]="records$.length.toString()"></app-user-stat-card>
         </div>
       </div>
     </div>
