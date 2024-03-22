@@ -19,4 +19,5 @@ class Record extends Model
     ];
 
     protected $table = 'records';
+
 }

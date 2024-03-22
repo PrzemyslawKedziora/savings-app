@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +34,8 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
 Route::post('/support', [EmailController::class,'sendEmail'])->name('sendEmail');
+
+Route::get('/categories', [CategoryController::class, 'categories']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

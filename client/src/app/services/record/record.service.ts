@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RecordModel} from "../../models/record.model";
 import {ApiResponseModel} from "../../models/api-response.model";
+import {CategoryModel} from "../../models/category";
+import {environment} from "../../../environments/environments";
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,11 @@ export class RecordService {
   }
 
   getRecords(): Observable<ApiResponseModel>{
-    return this.http.get<ApiResponseModel>('http://localhost:8000/api/records/'+this.user_id)
+    return this.http.get<ApiResponseModel>(environment.apiUrl+'records/'+this.user_id)
+  }
+
+  getRecordCategories(): Observable<CategoryModel>{
+    return this.http.get<CategoryModel>(environment.apiUrl+'/categories')
   }
 
   createRecord(record:RecordModel){}
