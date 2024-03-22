@@ -28,8 +28,8 @@ export class RecordService {
     return this.http.get<ApiResponseModel>(environment.apiUrl+'records/'+this.user_id)
   }
 
-  getRecordCategories(): Observable<CategoryModel>{
-    return this.http.get<CategoryModel>(environment.apiUrl+'/categories')
+  getRecordCategories(): Observable<CategoryModel[]>{
+    return this.http.get<CategoryModel[]>(environment.apiUrl+'/categories')
   }
 
   createRecord(record:RecordModel){}
